@@ -25,7 +25,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button"; 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { CREATE_SERVER_MODAL, SERVER_IMG_URL } from "@/lib/constants";
+import { CREATE_SERVER_MODAL, IMAGE_URL, SERVER_IMG_URL } from "@/lib/constants";
 
 const formSchema = z.object({
     name: z.string().min(1, {
@@ -48,7 +48,7 @@ export const CreateServerModal = () => {
         resolver: zodResolver(formSchema),
         defaultValues: {
             name: "",
-            imageUrl: SERVER_IMG_URL,
+            imageUrl: IMAGE_URL(),
         }
     });
 
