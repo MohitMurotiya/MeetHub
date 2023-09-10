@@ -5,8 +5,9 @@ export const SERVER_ERROR = "Internal Server Error";
 
 //modals
 export const INVITE_MODAL = "invite";
-export const SERVER_SETTINGS_MODAL = "serverSettings";
+export const MEMBERS_MODAL = "members";
 export const CREATE_SERVER_MODAL = "createServer";
+export const SERVER_SETTINGS_MODAL = "serverSettings";
 
 //images
 export const SERVER_IMG_URL = "https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6918e57475a843f59f_icon_clyde_black_RGB.svg";
