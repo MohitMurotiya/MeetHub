@@ -1,9 +1,9 @@
 import { Server } from "@prisma/client";
 import { create } from "zustand";
 
-import { CREATE_SERVER_MODAL, INVITE_MODAL } from "@/lib/constants";
+import { CREATE_SERVER_MODAL, INVITE_MODAL, SERVER_SETTINGS_MODAL } from "@/lib/constants";
 
-export type ModalType = typeof CREATE_SERVER_MODAL | typeof INVITE_MODAL;
+export type ModalType = typeof CREATE_SERVER_MODAL | typeof INVITE_MODAL | typeof SERVER_SETTINGS_MODAL;
 
 interface ModalData {
     server?: Server;

@@ -5,6 +5,7 @@ export const SERVER_ERROR = "Internal Server Error";
 
 //modals
 export const INVITE_MODAL = "invite";
+export const SERVER_SETTINGS_MODAL = "serverSettings";
 export const CREATE_SERVER_MODAL = "createServer";
 
 //images

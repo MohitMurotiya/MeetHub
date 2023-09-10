@@ -20,7 +20,7 @@ import {
     DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
 import { useModal } from "@/hooks/use-modal-store";
-import { INVITE_MODAL } from "@/lib/constants";
+import { INVITE_MODAL, SERVER_SETTINGS_MODAL } from "@/lib/constants";
 
 interface ServerHeaderProps {
     /* as we've included members with profile in db query,
@@ -62,6 +62,7 @@ export const ServerHeader = ({
                 )}
                 {isAdmin && (
                     <DropdownMenuItem
+                        onClick={() => onOpen(SERVER_SETTINGS_MODAL, { server })}
                         className="px-3 py-2 text-sm cursor-pointer"
                     >
                         Server Settings
