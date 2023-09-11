@@ -20,7 +20,7 @@ import {
     DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
 import { useModal } from "@/hooks/use-modal-store";
-import { INVITE_MODAL, MEMBERS_MODAL, SERVER_SETTINGS_MODAL } from "@/lib/constants";
+import { CREATE_CHANNEL_MODAL, INVITE_MODAL, MEMBERS_MODAL, SERVER_SETTINGS_MODAL } from "@/lib/constants";
 
 interface ServerHeaderProps {
     /* as we've included members with profile in db query,
@@ -80,6 +80,7 @@ export const ServerHeader = ({
                 )}
                 {isModerator && (
                     <DropdownMenuItem
+                        onClick={() => onOpen(CREATE_CHANNEL_MODAL)}
                         className="px-3 py-2 text-sm cursor-pointer"
                     >
                         Create Channel
