@@ -20,7 +20,7 @@ import {
     DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
 import { useModal } from "@/hooks/use-modal-store";
-import { CREATE_CHANNEL_MODAL, INVITE_MODAL, MEMBERS_MODAL, SERVER_SETTINGS_MODAL } from "@/lib/constants";
+import { CREATE_CHANNEL_MODAL, DELETE_SERVER_MODAL, INVITE_MODAL, LEAVE_SERVER_MODAL, MEMBERS_MODAL, SERVER_SETTINGS_MODAL } from "@/lib/constants";
 
 interface ServerHeaderProps {
     /* as we've included members with profile in db query,
@@ -92,6 +92,7 @@ export const ServerHeader = ({
                 )}
                 {isAdmin && (
                     <DropdownMenuItem
+                        onClick={() => onOpen(DELETE_SERVER_MODAL, { server })}
                         className="text-rose-500 px-3 py-2 text-sm cursor-pointer"
                     >
                         Delete Server
@@ -100,6 +101,7 @@ export const ServerHeader = ({
                 )}
                 {!isAdmin && (
                     <DropdownMenuItem
+                        onClick={() => onOpen(LEAVE_SERVER_MODAL, { server })}
                         className="text-rose-500 px-3 py-2 text-sm cursor-pointer"
                     >
                         Leave Server

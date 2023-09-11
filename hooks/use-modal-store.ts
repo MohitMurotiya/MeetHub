@@ -1,9 +1,15 @@
 import { Server } from "@prisma/client";
 import { create } from "zustand";
 
-import { CREATE_CHANNEL_MODAL, CREATE_SERVER_MODAL, INVITE_MODAL, MEMBERS_MODAL, SERVER_SETTINGS_MODAL } from "@/lib/constants";
+import { CREATE_CHANNEL_MODAL, CREATE_SERVER_MODAL, DELETE_SERVER_MODAL, INVITE_MODAL, LEAVE_SERVER_MODAL, MEMBERS_MODAL, SERVER_SETTINGS_MODAL } from "@/lib/constants";
 
-export type ModalType = typeof CREATE_SERVER_MODAL | typeof INVITE_MODAL | typeof SERVER_SETTINGS_MODAL | typeof MEMBERS_MODAL | typeof CREATE_CHANNEL_MODAL;
+export type ModalType = typeof CREATE_SERVER_MODAL 
+                        | typeof INVITE_MODAL 
+                        | typeof SERVER_SETTINGS_MODAL 
+                        | typeof MEMBERS_MODAL 
+                        | typeof CREATE_CHANNEL_MODAL
+                        | typeof DELETE_SERVER_MODAL
+                        | typeof LEAVE_SERVER_MODAL;
 
 interface ModalData {
     server?: Server;
