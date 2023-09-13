@@ -1,11 +1,12 @@
 "use client"
 
-import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useModal } from "@/hooks/use-modal-store";
 import { useForm } from "react-hook-form";
+import { useEffect } from "react";
 import qs from "query-string";
 import axios from "axios";
+import * as z from "zod";
 
 import {
     Dialog,
@@ -53,6 +54,7 @@ export const CreateChannelModal = () => {
     const router = useRouter();
     const params = useParams();
     const { isOpen, onClose, type, data } = useModal();
+    const { channelType } = data;
 
     const isModalOpen = isOpen && type === CREATE_CHANNEL_MODAL;
 
@@ -60,9 +62,18 @@ export const CreateChannelModal = () => {
         resolver: zodResolver(formSchema),
         defaultValues: {
             name: "",
-            type: ChannelType.TEXT,
+            type: channelType || ChannelType.TEXT,
         }
     });
+
+    /* To set default value of channel dropdown if present in modal-store */
+    useEffect(() => {
+        if(channelType){
+            form.setValue("type", channelType);
+        } else {
+            form.setValue("type", ChannelType.TEXT);
+        }
+    },[channelType, form]);
 
     const isLoading = form.formState.isSubmitting;
 
