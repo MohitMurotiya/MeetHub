@@ -1,7 +1,16 @@
-import { ChannelType, Server } from "@prisma/client";
+import { Channel, ChannelType, Server } from "@prisma/client";
 import { create } from "zustand";
 
-import { CREATE_CHANNEL_MODAL, CREATE_SERVER_MODAL, DELETE_SERVER_MODAL, INVITE_MODAL, LEAVE_SERVER_MODAL, MEMBERS_MODAL, SERVER_SETTINGS_MODAL } from "@/lib/constants";
+import { 
+    CREATE_CHANNEL_MODAL, 
+    CREATE_SERVER_MODAL, 
+    DELETE_CHANNEL_MODAL, 
+    DELETE_SERVER_MODAL, 
+    INVITE_MODAL, 
+    LEAVE_SERVER_MODAL, 
+    MEMBERS_MODAL, 
+    SERVER_SETTINGS_MODAL 
+} from "@/lib/constants";
 
 export type ModalType = typeof CREATE_SERVER_MODAL 
                         | typeof INVITE_MODAL 
@@ -9,10 +18,12 @@ export type ModalType = typeof CREATE_SERVER_MODAL
                         | typeof MEMBERS_MODAL 
                         | typeof CREATE_CHANNEL_MODAL
                         | typeof DELETE_SERVER_MODAL
-                        | typeof LEAVE_SERVER_MODAL;
+                        | typeof LEAVE_SERVER_MODAL
+                        | typeof DELETE_CHANNEL_MODAL;
 
 interface ModalData {
     server?: Server;
+    channel?: Channel;
     channelType?: ChannelType;
 }
 

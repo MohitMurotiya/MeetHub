@@ -10,6 +10,7 @@ export const LEAVE_SERVER_MODAL = "leaveServer";
 export const CREATE_SERVER_MODAL = "createServer";
 export const DELETE_SERVER_MODAL = "deleteServer";
 export const CREATE_CHANNEL_MODAL = "createChannel";
+export const DELETE_CHANNEL_MODAL = "deleteChannel";
 export const SERVER_SETTINGS_MODAL = "serverSettings";
 
 //images
