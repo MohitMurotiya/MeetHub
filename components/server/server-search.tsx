@@ -2,7 +2,7 @@
 
 import { Search, Command } from "lucide-react";
 import { useEffect, useState } from "react";
-import { redirect, useParams, useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 
 import {
     CommandDialog,
@@ -55,9 +55,12 @@ export const ServerSearch = ({
 
     return (
         <>
+            <div className="text-center font-semibold text-xs mb-3 text-[#1c1917] dark:text-[#fafaf9]">
+                Use Quick Switcher to get around MeetHub quickly. Just press:
+            </div>
             <button
                 onClick={() => setOpen(true)}
-                className="group px-2 py-2 rounded-md flex items-center gap-x-2 w-full hover:bg-zinc-700/10 dark:hover:bg-zinc-700/50 transition"
+                className="group px-2 py-2 rounded-md flex items-center gap-x-2 w-full bg-zinc-700/10 dark:bg-zinc-700/50"
             >
                 <Search className="w-4 h-4 text-zinc-500 dark:text-zinc-400" />
                 <p

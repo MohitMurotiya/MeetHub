@@ -7,7 +7,7 @@ import { useParams, useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { ActionTooltip } from "@/components/action-tooltip";
 import { ModalType, useModal } from "@/hooks/use-modal-store";
-import { DELETE_CHANNEL_MODAL } from "@/lib/constants";
+import { CHANNEL_SETTINGS_MODAL, DELETE_CHANNEL_MODAL } from "@/lib/constants";
 
 interface ServerChannelProps {
     role?: MemberRole;
@@ -37,6 +37,7 @@ export const ServerChannel = ({
         router.push(`/servers/${params?.serverId}/channels/${channel.id}`)
     }
 
+    /* create onAction() button onClick() overridng Icon onClick() */
     const onAction = (e: React.MouseEvent, action: ModalType) => {
         e.stopPropagation();
         onOpen(action, { server, channel })
@@ -61,6 +62,7 @@ export const ServerChannel = ({
                 <div className="ml-auto flex items-center gap-x-2">
                     <ActionTooltip label="Edit">
                         <Edit
+                            onClick={(e) => onAction(e, CHANNEL_SETTINGS_MODAL)}
                             className="hidden group-hover:block w-4 h-4 text-zinc-500 hover:text-zinc-600 dark:text-zinc-400 dark:hover:text-zinc-300 transition"
                         />
                     </ActionTooltip>

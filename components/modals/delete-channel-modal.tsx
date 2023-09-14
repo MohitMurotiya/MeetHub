@@ -3,6 +3,7 @@
 import axios from "axios";
 import qs from "query-string";
 import { useState } from "react";
+import { Hash } from 'lucide-react';
 import { useRouter } from "next/navigation";
 
 import {
@@ -56,7 +57,7 @@ export const DeleteChannelModal = () => {
                     <DialogDescription className="text-center text-zinc-500">
                         Are you sure you want to do this? <br />
                         <span className="text-indigo-500 font-semibold">
-                            #{channel?.name}
+                            <Hash className="inline h-5 w-5"/>{channel?.name}
                         </span> will be permanently deleted.
                     </DialogDescription>
                 </DialogHeader>
