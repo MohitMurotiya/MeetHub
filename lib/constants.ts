@@ -13,6 +13,9 @@ export const CREATE_CHANNEL_MODAL = "createChannel";
 export const DELETE_CHANNEL_MODAL = "deleteChannel";
 export const SERVER_SETTINGS_MODAL = "serverSettings";
 export const CHANNEL_SETTINGS_MODAL = "channelSettings";
+export const DELETE_MESSAGE_MODAL = "deleteMessage";
+
+export const DATE_FORMAT = "d MMM yyyy, HH:mm";
 
 //images
 export const SERVER_IMG_URL = "https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6918e57475a843f59f_icon_clyde_black_RGB.svg";

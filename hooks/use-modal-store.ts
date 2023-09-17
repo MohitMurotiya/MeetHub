@@ -3,14 +3,15 @@ import { create } from "zustand";
 
 import { 
     CHANNEL_SETTINGS_MODAL,
-    CREATE_CHANNEL_MODAL, 
-    CREATE_SERVER_MODAL, 
-    DELETE_CHANNEL_MODAL, 
-    DELETE_SERVER_MODAL, 
-    INVITE_MODAL, 
-    LEAVE_SERVER_MODAL, 
-    MEMBERS_MODAL, 
-    SERVER_SETTINGS_MODAL 
+    CREATE_CHANNEL_MODAL,
+    CREATE_SERVER_MODAL,
+    DELETE_CHANNEL_MODAL,
+    DELETE_MESSAGE_MODAL,
+    DELETE_SERVER_MODAL,
+    INVITE_MODAL,
+    LEAVE_SERVER_MODAL,
+    MEMBERS_MODAL,
+    SERVER_SETTINGS_MODAL
 } from "@/lib/constants";
 
 export type ModalType = typeof CREATE_SERVER_MODAL 
@@ -21,12 +22,15 @@ export type ModalType = typeof CREATE_SERVER_MODAL
                         | typeof DELETE_SERVER_MODAL
                         | typeof LEAVE_SERVER_MODAL
                         | typeof DELETE_CHANNEL_MODAL
-                        | typeof CHANNEL_SETTINGS_MODAL;
+                        | typeof CHANNEL_SETTINGS_MODAL
+                        | typeof DELETE_MESSAGE_MODAL;
 
 interface ModalData {
     server?: Server;
     channel?: Channel;
     channelType?: ChannelType;
+    apiUrl?: string;
+    query?: Record<string, any>;
 }
 
 interface ModalStore {
