@@ -5,8 +5,9 @@ import { format } from "date-fns";
 import { Member } from "@prisma/client";
 import { Loader2, ServerCrash } from "lucide-react";
 
-import { ChatWelcome } from "./chat-welcome";
+import { useChatSocket } from "@/hooks/use-chat-socket";
 import { useChatQuery } from "@/hooks/use-chat-query";
+import { ChatWelcome } from "./chat-welcome";
 import { MessageWithMemberWithProfile } from "@/lib/types";
 import { DATE_FORMAT } from "@/lib/constants";
 import { ChatItem } from "./chat-item";
@@ -34,6 +35,10 @@ export const ChatMessages = ({
     paramKey,
     paramValue,
 }: ChatMessagesProps) => {
+
+    const queryKey = `chat:${chatId}`;
+    const addKey = `chat:${chatId}:messages`;
+    const updateKey = `chat:${chatId}:messages:udpate`;
 
     const { data, status, hasNextPage, fetchNextPage, isFetchingNextPage } = useChatQuery({
         queryKey: `chat:${chatId}`,
@@ -72,6 +77,7 @@ export const ChatMessages = ({
                     <Fragment key={i}>
                         {group.items.map((message : MessageWithMemberWithProfile) => (
                             <ChatItem
+                                key={message.id}
                                 message={message}
                                 member={message.member}
                                 currentMember={member}
