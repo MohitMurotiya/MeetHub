@@ -8,6 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Member, MemberRole, Message, Profile } from "@prisma/client"
 import { Pencil, ShieldAlert, ShieldCheck, Trash } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useRouter, useParams } from "next/navigation";
 
 import { UserAvatar } from "@/components/user-avatar";
 import { ActionTooltip } from "../action-tooltip";
@@ -103,17 +104,27 @@ export const ChatItem = ({
     }
 
     const { onOpen } = useModal();
+    
+    const params = useParams();
+    const router = useRouter();
+
+    const onMemeberClick = () => {
+        if(member.id === currentMember.id) {
+            return;
+        }
+        router.push(`/servers/${params?.serverId}/conversations/${member.id}`);
+    }
 
     return (
         <div className="relative flex items-center hover:bg-black/5 p-4 transition w-full group">
             <div className="flex gap-x-2 items-start w-full group">
-                <div className="cursor-pointer hover:drop-shadow-md transition">
+                <div onClick={onMemeberClick} className="cursor-pointer hover:drop-shadow-md transition">
                     <UserAvatar src={member.profile.imageUrl} />
                 </div>
                 <div className="flex flex-col w-full">
                     <div className="flex items-center gap-x-2">
                         <div className="flex items-center">
-                            <p className="font-semibold text-sm hover:underline cursor-pointer">
+                            <p onClick={onMemeberClick} className="font-semibold text-sm hover:underline cursor-pointer">
                                 {member.profile.name}
                             </p>
                             <ActionTooltip label={member.role}>
